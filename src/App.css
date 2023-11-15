@@ -1,27 +1,111 @@
 .App {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   font-family: 'IBM Plex Mono', monospace;
 }
 
+/* Background grid animation */
+
+@keyframes moveGrid {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  background-image: linear-gradient(90deg, rgba(105, 105, 105, 0.20) 3px, transparent 3px),
+                    linear-gradient(180deg, rgba(105, 105, 105, 0.20) 3px, transparent 3px);
+  background-size: 50px 50px;
+  animation: moveGrid 15s linear infinite;
+  color: #999;
+  text-align: center;
+}
+
+/* page content */
+
+.content {
+  flex-grow: 1; /* push the footer down */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .team-torus {
   font-size: 48px;
+  font-weight: bold;
 }
 
 .coming-soon {
   font-size: 24px;
-  padding: 24px;
+  margin: 30px;
+  font-weight: bold;
 }
+
+.coming-soon {
+  background-image: linear-gradient(
+    to right,
+    #00cdfe,
+    #00cdfe 50%,
+    white 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.coming-soon:before{
+  content: '';
+  background: #00cdfe;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.coming-soon:hover {
+  background-position: 0;
+ }
+ 
+ .coming-soon:hover::before{
+   width: 100%;
+ }
 
 .torus-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* Adjust the height as needed */
+  height: 300px;
   width: 100%;
+}
+
+.instagram-link {
+  color: #a5a5a5;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 20px;
+  box-sizing: border-box;
+}
+
+.university, .instagram {
+  font-size: 14px;
+  color: #a5a5a5 ;
 }
