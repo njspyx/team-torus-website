@@ -6,30 +6,22 @@
   min-height: 100vh;
   background-color: black;
   color: white;
-  font-family: monospace;
-}
-
-.header {
-  text-align: center;
-  padding: 20px;
-  text-shadow: 0px 0px 10px rgba(0, 0, 255, 0.8);
-}
-
-.header-text {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .team-torus {
-  color: blue;
   font-size: 48px;
 }
 
 .coming-soon {
   font-size: 24px;
+  padding: 24px;
 }
 
 .torus-container {
-  /* TODO? add styles for the spinning torus container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Adjust the height as needed */
+  width: 100%;
 }

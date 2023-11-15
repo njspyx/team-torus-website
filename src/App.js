@@ -7,15 +7,15 @@ function Torus() {
 
   useFrame(() => {
     if (torusRef.current) {
-      torusRef.current.rotation.y += 0.02;
-      torusRef.current.rotation.x += 0.01;
+      torusRef.current.rotation.y += 0.002;
+      torusRef.current.rotation.x += 0.001;
     }
   });
 
   return (
-    <mesh ref={torusRef}>
-      <torusGeometry args={[5, 2, 16, 100]} />
-      <meshBasicMaterial color={0x0000ff} />
+    <mesh ref={torusRef} castShadow receiveShadow>
+      <torusGeometry args={[2, 0.6, 16, 100]} />
+      <meshStandardMaterial color={0x00cdfe} />
     </mesh>
   );
 }
@@ -23,18 +23,21 @@ function Torus() {
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <div className="header-text">
-          <h1 className="team-torus">Team Torus</h1>
-          <p className="coming-soon">Coming Soon</p>
-        </div>
-      </header>
+      <p className="team-torus">Team Torus</p>{" "}
       <div className="torus-container">
-        <Canvas>
+        <Canvas shadows>
           <ambientLight />
+          <directionalLight
+            position={[5, 5, 5]}
+            castShadow
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-bias={-0.0005}
+          />
           <Torus />
         </Canvas>
       </div>
+      <p className="coming-soon">Coming Soon</p>
     </div>
   );
 }
