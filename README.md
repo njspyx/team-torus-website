@@ -2,4 +2,4 @@
 
 OUTDATED
 
-Check https://github.com/TeamTorus/team-torus-website
+Check https://github.com/TeamTorus/teamtorus.github.io
